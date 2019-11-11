@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>img_url:</strong>
+  <%= image_tag @post.img_url,:size => "105x150" %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.category %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Back', root_path %>
