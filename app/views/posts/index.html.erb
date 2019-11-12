@@ -7,17 +7,25 @@
 
 
   <% @post.each do |post| %>
+    <% time = post.created_at.localtime(utc_offset = nil) %>
     <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
     <img class="card-img-top" alt="image pin" src=<%= post.img_url %> >
     <div class="card-body">
-      <h5 class="card-title"><%= post.title %></h5>
+      <h4 class="card-title"><%= post.title %></h4>
       <h5 class="card-title"><%= post.description %></h5>
-      <h5 class="card-title"><%= post.categories.cusines %></h5>
+<<<<<<< HEAD
+      <h5 class="card-title"><%= post.category.cusines %></h5>
 
     <div class="card-body">
+=======
+      <h6 class="card-title"><%= post.category.cusines %></h6>
+      <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
+		  </div>
+>>>>>>> d7698d2b16301d367ffe6837e6da41beb9598b9c
 
+    <div class="card-body">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-primary"} %>
+        <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-info"} %>
         <%= link_to 'Edit', edit_post_path(post), {:class => "btn btn-sm btn-warning"} %>
         <%= link_to 'Delete', post_path(post), :class => "btn btn-sm btn-secondary",
           method: :delete,
@@ -26,12 +34,18 @@
     </div>
   </div>
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> d7698d2b16301d367ffe6837e6da41beb9598b9c
 <% end %>
 
-<%= link_to 'New Post', new_post_path, {:class => "btn btn-outline-primary"} %>
+
+
+<%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
 <% end %>
-<%= link_to 'log out', destroy_user_session_url, method: :delete %>
-<%= link_to 'log in', new_user_session_url %>
 
 
 </div>
