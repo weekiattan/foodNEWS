@@ -11,3 +11,10 @@
 # Category.create(cusines: "chinese")
 # Category.create(cusines: "mexican")
 # Category.create(cusines: "italian")
+
+
+Post.create(rating: 1)
+Post.create(rating: 2)
+Post.create(rating: 3)
+Post.create(rating: 4)
+Post.create(rating: 5)

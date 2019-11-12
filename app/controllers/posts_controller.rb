@@ -10,6 +10,7 @@ class PostsController < ApplicationController
         @categories = Category.all
         @post= Post.find(params[:id])
         @user= @post.user
+        @post.user = current_user
     end
 
     def new

@@ -1,13 +1,23 @@
 <div class="container">
 
-<% header = @user.username %>
 
-<% if header === nil %>
-		<% header = @user.email%>
-    <% end %>
+
+
+
+<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
+    <div class="card-body">
+        <h4 class="card-title">Username: <%= @user.username %></h4>
+        <h4 class="card-title">Email: <%= @user.email %></h4>
+	</div>
+
+
+
+
+		
+    
     
 
-    <h1 class="display-4 text-center"><%= header %></h1>
+
 
    
 
