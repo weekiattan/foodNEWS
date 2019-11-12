@@ -34,7 +34,7 @@
             </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-            <a class="dropdown-item text-center" href="/posts/<%= current_user.id %>">Profile</a>
+            <a class="dropdown-item text-center" href="/users/<%= current_user.id %>">Profile</a>
             <div class="dropdown-divider"></div>
               <%= link_to 'Logout', destroy_user_session_url, method: :delete, :class => "card-link text-body dropdown-item text-center" %>
           <% else %>
