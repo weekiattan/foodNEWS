@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     def show
         @categories = Category.all
         @post= Post.find(params[:id])
+        @user= @post.user
     end
 
     def new

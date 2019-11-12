@@ -1,22 +1,6 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="container">
 
-<p>
-  <strong>img_url:</strong>
-  <%= image_tag @post.img_url,:size => "105x150" %>
-</p>
+<% header = @user.username %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @post.category.cusines %>
-</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Back', root_path %>
