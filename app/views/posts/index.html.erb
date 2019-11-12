@@ -12,8 +12,8 @@
     <div class="card-body">
       <h5 class="card-title"><%= post.title %></h5>
       <h5 class="card-title"><%= post.description %></h5>
-      <h5 class="card-title"><%= post.category.cusines %></h5>
-     
+      <h5 class="card-title"><%= post.categories.cusines %></h5>
+
     <div class="card-body">
 
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -25,7 +25,7 @@
       </div>
     </div>
   </div>
-  
+
 <% end %>
 
 <%= link_to 'New Post', new_post_path, {:class => "btn btn-outline-primary"} %>
