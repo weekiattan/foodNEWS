@@ -1,6 +1,9 @@
-<h1>Edit post</h1>
+<div class="container">
+
+<h1 class="display-4 row justify-content-center">Edit Posts</h1>
 
 <%= form_with scope: :post, model: @post, local: true do |form| %>
+  <div class="form-group mt-5" style="width: 50%; margin: 0 auto">
 
  
     <p>
@@ -23,10 +26,12 @@
       <%= form.text_field :category%>
     </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+    <%= form.submit "Save Posts", class: "btn btn-primary" %>
+    </p>
 
 <% end %>
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path, {:class => "btn btn-outline-primary"}  %>
+
+</div>
 

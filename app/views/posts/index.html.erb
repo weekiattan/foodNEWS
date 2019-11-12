@@ -1,31 +1,37 @@
-<h1>Listing posts</h1>
+<div class="container">
+    <h1 class="display-4 row justify-content-center">All Posts</h1>
 
 <% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
-<% end %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Image_url</th>
-    <th>Description</th>
-    <th>Category</th>
-    <th></th>
-  </tr>
+
+
 
   <% @post.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= image_tag post.img_url,:size => "150x150" %></td>
-      <td><%= post.description  %></td>
-      <td><%= post.category %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+    <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
+    <img class="card-img-top" alt="image pin" src=<%= post.img_url %> >
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <h5 class="card-title"><%= post.description %></h5>
+      <h5 class="card-title"><%= post.category %></h5>
+     
+    <div class="card-body">
+
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-primary"} %>
+        <%= link_to 'Edit', edit_post_path(post), {:class => "btn btn-sm btn-warning"} %>
+        <%= link_to 'Delete', post_path(post), :class => "btn btn-sm btn-secondary",
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>
+  
+<% end %>
+
+<%= link_to 'New Post', new_post_path, {:class => "btn btn-outline-primary"} %>
+<% end %>
 <%= link_to 'log out', destroy_user_session_url, method: :delete %>
 <%= link_to 'log in', new_user_session_url %>
+
+
+</div>

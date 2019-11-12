@@ -1,4 +1,13 @@
+<div class="container">
+
+<h1 class="display-4 text-center">New Post</h1>
+
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <div class="form-group mt-5" style="width: 50%; margin: 0 auto">
+
+     
+
+
     <p>
       <%= form.label :title %><br>
       <%= form.text_field :title %>
@@ -20,7 +29,10 @@
     </p>
   
     <p>
-      <%= form.submit %>
+    <%= form.submit "Save Posts", class: "btn btn-primary" %>
     </p>
+    </div>
   <% end %>
+
+  </div>
   
