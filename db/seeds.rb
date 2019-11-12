@@ -8,6 +8,6 @@
 
 
 
-# Category.create(cusines: "chinese")
-# Category.create(cusines: "mexican")
-# Category.create(cusines: "italian")
+Category.create(cusines: "chinese")
+Category.create(cusines: "mexican")
+Category.create(cusines: "italian")
