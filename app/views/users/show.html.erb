@@ -1,0 +1,22 @@
+<div class="container">
+
+<% header = @user.username %>
+
+<% if header === nil %>
+		<% header = @user.email%>
+    <% end %>
+    
+
+    <h1 class="display-4 text-center"><%= header %></h1>
+
+   
+
+    <div class="text-center mb-5">
+        <%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
+
+        <%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
+    </div>
+
+
+
+</div>
