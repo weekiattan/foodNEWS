@@ -13,15 +13,16 @@
     <div class="card-body">
       <h4 class="card-title"><%= post.title %></h4>
       <h5 class="card-title"><%= post.description %></h5>
-<<<<<<< HEAD
       <h5 class="card-title"><%= post.category.cusines %></h5>
 
     <div class="card-body">
-=======
+
       <h6 class="card-title"><%= post.category.cusines %></h6>
       <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
 		  </div>
->>>>>>> d7698d2b16301d367ffe6837e6da41beb9598b9c
+		  <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
+		  	<h5><%= review.comments %></h5>
+		  <%end%>
 
     <div class="card-body">
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -34,12 +35,11 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> d7698d2b16301d367ffe6837e6da41beb9598b9c
+
+
 <% end %>
 
 

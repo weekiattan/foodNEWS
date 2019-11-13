@@ -12,6 +12,16 @@
 <% time = @post.created_at.localtime(utc_offset = nil) %>
 </div>
 
+<%= form_with model: [@post, @review], local: true do |form| %>  <p>
+    <%= form.label :comments %><br>
+    <%= form.text_area :comments, :class => 'form-control ' %>
+  </p>
+
+  <p>
+    <%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-lg' %>
+  </p>
+<% end %>
+
 <div class="text-center mb-5">
 		<%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
 

@@ -11,3 +11,5 @@
 # Category.create(cusines: "chinese")
 # Category.create(cusines: "mexican")
 # Category.create(cusines: "italian")
+
+# add = Review.create([{ comments: 'This is good', post_id: 2, user_id: 2}])
