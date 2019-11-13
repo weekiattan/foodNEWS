@@ -5,6 +5,8 @@ class PostsController < ApplicationController
         @post= Post.all
         @categories = Category.all
         @reviews = Review.all
+        @user = User.all
+
     end
 
     def show
@@ -14,6 +16,7 @@ class PostsController < ApplicationController
         @reviews = @post.review
 
         @user= @post.user
+        @post.user = current_user
     end
 
     def new
@@ -61,5 +64,5 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :img_url, :description, :category_id)
+    params.require(:post).permit(:title, :img_url, :description, :category_id, :rating)
   end

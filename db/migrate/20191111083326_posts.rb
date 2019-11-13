@@ -4,7 +4,7 @@ class Posts < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :img_url
       t.text :description
-      t.string :category
+      t.integer :rating
       t.timestamps
     end
   end
