@@ -4,13 +4,17 @@ class PostsController < ApplicationController
     def index
         @post= Post.all
         @categories = Category.all
+        @reviews = Review.all
         @user = User.all
-        
+
     end
 
     def show
         @categories = Category.all
         @post= Post.find(params[:id])
+        @review = Review.new
+        @reviews = @post.review
+
         @user= @post.user
         @post.user = current_user
     end
