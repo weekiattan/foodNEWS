@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_152505) do
     t.string "title"
     t.text "img_url"
     t.text "description"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

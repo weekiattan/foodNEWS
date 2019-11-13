@@ -10,6 +10,7 @@ class PostsController < ApplicationController
         @categories = Category.all
         @post= Post.find(params[:id])
         @user= @post.user
+        @post.user = current_user
     end
 
     def new
@@ -57,5 +58,5 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :img_url, :description, :category_id)
+    params.require(:post).permit(:title, :img_url, :description, :category_id, :rating)
   end
