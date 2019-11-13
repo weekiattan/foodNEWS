@@ -4,6 +4,8 @@ class PostsController < ApplicationController
     def index
         @post= Post.all
         @categories = Category.all
+        @user = User.all
+        
     end
 
     def show
