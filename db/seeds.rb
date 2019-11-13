@@ -8,13 +8,14 @@
 
 
 
-# Category.create(cusines: "chinese")
-# Category.create(cusines: "mexican")
-# Category.create(cusines: "italian")
+Category.create(cusines: "chinese")
+Category.create(cusines: "mexican")
+Category.create(cusines: "italian")
+Category.create(cusines: "japanese")
+Category.create(cusines: "indian")
+Category.create(cusines: "french")
+Category.create(cusines: "thai")
+Category.create(cusines: "korean")
+Category.create(cusines: "american")
+Category.create(cusines: "indian")
 
-
-Post.create(rating: 1)
-Post.create(rating: 2)
-Post.create(rating: 3)
-Post.create(rating: 4)
-Post.create(rating: 5)

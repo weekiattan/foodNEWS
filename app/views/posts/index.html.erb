@@ -14,8 +14,15 @@
       <h4 class="card-title"><%= post.title %></h4>
       <h5 class="card-title"><%= post.description %></h5>
       <h6 class="card-title"><%= post.category.cusines %></h6>
+      <div class="star-rating">
+      <% post.rating.to_i.times do  %>
+        <span>⭐</span>
+      <% end %>
+    </div>
       <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
-		  </div>
+      </div>
+      
+     
 
     <div class="card-body">
       <div class="btn-group" role="group" aria-label="Basic example">

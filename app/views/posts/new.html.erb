@@ -22,6 +22,13 @@
     <%= form.label :description  %><br>
     <%= form.text_area :description%>
     </p>
+
+
+    <p>
+    <%= form.label :rating  %><br>
+    <%= form.number_field :rating, max: 5,min: 1%>
+    </p>
+
 		<div><%= form.collection_select :category_id, @categories, :id, :cusines %></div>
 
 

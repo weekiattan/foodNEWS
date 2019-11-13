@@ -21,6 +21,11 @@
       <%= form.text_field :description  %>
     </p>
 
+    <p>
+    <%= form.label :rating  %><br>
+    <%= form.number_field :rating, max: 5,min: 1%>
+    </p>
+    
   	<%= form.collection_select :category_id, @categories, :id, :cusines %>
 
     <p>
