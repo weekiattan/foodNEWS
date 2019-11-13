@@ -1,53 +1,45 @@
 <div class="container">
-    <h1 class="display-4 row justify-content-center">All Posts</h1>
+  <h1 class="display-4 row justify-content-center">All Posts</h1>
 
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
 
-
-
-
-  <% @post.each do |post| %>
-    <% time = post.created_at.localtime(utc_offset = nil) %>
-    <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
-      <img class="card-img-top" alt="image pin" src=<%= post.img_url %> >
-      <div class="card-body">
-        <h4 class="card-title"><%= post.title %></h4>
-        <h5 class="card-title"><%= post.description %></h5>
-        <h6 class="card-title"><%= post.category.cusines %></h6>
-        <div class="star-rating">
-        <% post.rating.to_i.times do  %>
-          <span>⭐</span>
-        <% end %>
-      </div>
-        <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
-        <% if post.user_id != current_user.id%>
+    <div class="card-deck">
+      <% @post.each do |post| %>
+        <% time = post.created_at.localtime(utc_offset = nil) %>
+        <div class="card text-center ">
+          <img class="card-img-top" alt="image pin" src=<%= post.img_url %> >
+          <div class="card-body">
+            <h4 class="card-title"><%= post.title %></h4>
+            <h5 class="card-title"><%= post.description %></h5>
+            <h6 class="card-title"><%= post.category.cusines %></h6>
+            <div class="star-rating">
+              <% post.rating.to_i.times do  %>
+                <span>⭐</span>
+              <% end %>
+            </div>
+            <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
+             <% if post.user_id != current_user.id%>
           <footer class="blockquote-footer">Posted by: <cite title="Source Title"><%= @user.where(id: post.user_id)[0].username %></cite></footer>
         <% end %>
         <%= link_to 'User Profile', user_path(post.user_id), {:class => "btn btn-sm btn-info"} %>
+          </div>
+          
+        
+
+          <div class="card-body">
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-info"} %>
+              <%= link_to 'Edit', edit_post_path(post), {:class => "btn btn-sm btn-warning"} %>
+              <%= link_to 'Delete', post_path(post), :class => "btn btn-sm btn-secondary",
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div> 
+      <% end %>
     </div>
-      
-     
-
-    <div class="card-body">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-info"} %>
-        <%= link_to 'Edit', edit_post_path(post), {:class => "btn btn-sm btn-warning"} %>
-        <%= link_to 'Delete', post_path(post), :class => "btn btn-sm btn-secondary",
-          method: :delete,
-          data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-  </div>
-
-
-
-  
-<% end %>
-
-
-
-<%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
-<% end %> 
-
-
+    <%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
+  <% end %> 
 </div>
+>>>>>>> master
+
