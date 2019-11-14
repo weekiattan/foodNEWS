@@ -12,6 +12,10 @@
 
   <% if user_signed_in? %>
 
+  </div>
+    <%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
+  <% end %>
+
     <div class="card-deck">
       <% @post.each do |post| %>
         <% time = post.created_at.localtime(utc_offset = nil) %>
@@ -21,35 +25,31 @@
             <h4 class="card-title"><%= post.title %></h4>
             <h5 class="card-title"><%= post.description %></h5>
             <h6 class="card-title"><%= post.category.cusines %></h6>
-            <div class="star-rating">
+          <div class="star-rating">
               <% post.rating.to_i.times do  %>
                 <span>⭐</span>
               <% end %>
-            </div>
-            <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
-            <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
-              <h5><%= review.comments %></h5>
-          <%end%>
-             <% if post.user_id != current_user.id%>
+                <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
+                  <h5><%= review.comments %></h5>
+                <%end%>
+          </div>
+          <% p "@@@@@@@@@@@@@@@@@@@@@@"%>
+          <% p current_user.id%>
+
+            <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
+        <% if post.user_id != current_user.id%>
           <footer class="blockquote-footer">Posted by: <cite title="Source Title"><%= @user.where(id: post.user_id)[0].username %></cite></footer>
         <% end %>
-        <%= link_to 'User Profile', user_path(post.user_id), {:class => "btn btn-sm btn-info"} %>
+        
           </div>
-
-
 
           <div class="card-body">
             <div class="btn-group" role="group" aria-label="Basic example">
-              <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-info"} %>
-              <%= link_to 'Edit', edit_post_path(post), {:class => "btn btn-sm btn-warning"} %>
-              <%= link_to 'Delete', post_path(post), :class => "btn btn-sm btn-secondary",
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-dark"} %>
+              <%= link_to 'User Profile', user_path(post.user_id), {:class => "btn btn-sm btn-info"} %>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
-    <%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
-  <% end %>
+  
 </div>
