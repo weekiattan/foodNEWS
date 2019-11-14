@@ -5,11 +5,13 @@ class UsersController < ApplicationController
     
       def index
         @user = User.all
+        @post= Post.all
       end
     
       def show
     
         @user = User.find(params[:id])
+        @post= Post.all
     
       end
     
