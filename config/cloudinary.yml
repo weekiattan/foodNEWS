@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: "dgtgapicg"
+  api_key: "487491684442742"
+  api_secret: "GdP9ca7wh8v0ZDPpFVDr6FM4g_s"
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dgtgapicg
+  api_key: '487491684442742'
+  api_secret: GdP9ca7wh8v0ZDPpFVDr6FM4g_s
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dgtgapicg
+  api_key: '487491684442742'
+  api_secret: GdP9ca7wh8v0ZDPpFVDr6FM4g_s
+  enhance_image_tag: true
+  static_file_support: false

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
         @categories = Category.all
         @reviews = Review.all
         @user = User.all
+        @post = Post.search(params[:search])
 
     end
 
@@ -30,9 +31,22 @@ class PostsController < ApplicationController
     end
 
     def create
+
+      uploaded_file = params[:post][:cloud].path
+      cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+      #store this public_id value to the database
+      #cloudnary_file['public_id']
+
+      # render json: cloudnary_file
+      # p cloudnary_file
+      s1 = cloudnary_file["public_id"]
+      s2 = cloudnary_file["url"]
+
         @categories = Category.all
         @post = Post.new(post_params)
-
+        @post.cloud_key = s1
+        @post.cloud_url = s2
         @post.user = current_user
 
         if @post.save
@@ -64,5 +78,5 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :img_url, :description, :category_id, :rating)
+    params.require(:post).permit(:title, :description, :category_id, :rating)
   end
