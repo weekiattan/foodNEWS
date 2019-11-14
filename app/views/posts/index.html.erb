@@ -1,6 +1,14 @@
 <div class="container">
 
-  <h1 class="display-4 row justify-content-center">All Posts</h1>
+<h1 class="display-4 row justify-content-center">All Posts</h1>
+
+  <div class="justify-content-center">
+  <%= form_tag posts_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+    <% end %>
+    </div>
+
 
   <% if user_signed_in? %>
 
@@ -12,7 +20,7 @@
       <% @post.each do |post| %>
         <% time = post.created_at.localtime(utc_offset = nil) %>
         <div class="card text-center ">
-          <img class="card-img-top" alt="image pin" src=<%= post.img_url %> >
+          <img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >
           <div class="card-body">
             <h4 class="card-title"><%= post.title %></h4>
             <h5 class="card-title"><%= post.description %></h5>
@@ -45,5 +53,3 @@
       <% end %>
   
 </div>
-
-
