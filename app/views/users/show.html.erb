@@ -1,5 +1,6 @@
 <div class="container">
 
+ <% if user_signed_in? %>
 
 <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
     <div class="card-body">
@@ -8,14 +9,16 @@
         <h4 class="card-title"><%= @user.email %></h4>
         
 	</div>
-   
 
+   
     <div class="text-center mb-5">
         <%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
-
+        <% if @user.id == current_user.id %>
         <%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
+        <% end %>
     </div>
 
-
+   
+ <% end %>
 
 </div>

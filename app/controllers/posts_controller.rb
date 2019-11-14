@@ -15,8 +15,7 @@ class PostsController < ApplicationController
         @review = Review.new
         @reviews = @post.review
 
-        @user= @post.user
-        @post.user = current_user
+        
     end
 
     def new
@@ -26,7 +25,9 @@ class PostsController < ApplicationController
     def edit
         @post = Post.find(params[:id])
         @categories = Category.all
+        @user = User.all
 
+      
     end
 
     def create
