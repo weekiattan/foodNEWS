@@ -19,16 +19,20 @@
               <% end %>
             </div>
             <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
-            <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
-              <h5><%= review.comments %></h5>
-          <%end%>
              <% if post.user_id != current_user.id%>
           <footer class="blockquote-footer">Posted by: <cite title="Source Title"><%= @user.where(id: post.user_id)[0].username %></cite></footer>
         <% end %>
         <%= link_to 'User Profile', user_path(post.user_id), {:class => "btn btn-sm btn-info"} %>
           </div>
-
-
+          <div class="scrollbar">
+          	<h5>Comments</h5>
+          		<div class="comments">
+            <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
+              <h6><%= @user.where(id: review.user_id)[0].username %></h6><h6><%= review.comments %><%= review.created_at.day %>/<%= review.created_at.month %>/<%= review.created_at.year %></h6><br>
+              <%= link_to 'Delete', [review.post, review], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
+        		</div>
+        	</div>
 
           <div class="card-body">
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -45,5 +49,3 @@
     <%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
   <% end %>
 </div>
->>>>>>> master
->>>>>>> master

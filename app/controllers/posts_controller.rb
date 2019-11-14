@@ -36,7 +36,7 @@ class PostsController < ApplicationController
         @post.user = current_user
 
         if @post.save
-      #   render plain: params[:kopi].inspect
+
         redirect_to @post
         else
           @posts = Post.all

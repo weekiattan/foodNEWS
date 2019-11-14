@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+
+.scrollbar{
+	background-color: white;
+}
+
+
+.comments{
+	overflow: scroll;
+	height: 200px;
+}
