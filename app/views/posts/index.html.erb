@@ -28,7 +28,7 @@
           <% p "@@@@@@@@@@@@@@@@@@@@@@"%>
           <% p current_user.id%>
 
-            <footer class="blockquote-footer">created at <cite title="Source Title"><%= post.created_at.day %>/<%= post.created_at.month %>/<%= post.created_at.year %> <%= time.strftime("%I:%M %p") %></cite></footer>
+            <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
         <% if post.user_id != current_user.id%>
           <footer class="blockquote-footer">Posted by: <cite title="Source Title"><%= @user.where(id: post.user_id)[0].username %></cite></footer>
         <% end %>
