@@ -2,7 +2,7 @@
 
 <h1 class="display-4 row justify-content-center">All Posts</h1>
 
-  <div class="justify-content-center">
+  <div class="searchbar">
   <%= form_tag posts_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search" %>
