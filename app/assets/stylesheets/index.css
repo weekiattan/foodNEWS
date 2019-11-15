@@ -2,3 +2,10 @@
   max-width: auto;
   height: auto;
 }
+    max-width: auto;
+    height: auto;
+}
+
+.searchbar {
+    text-align: center;
+}

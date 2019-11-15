@@ -2,7 +2,7 @@
 
 <h1 class="display-4 row justify-content-center">All Posts</h1>
 
-  <div class="justify-content-center">
+  <div class="searchbar">
   <%= form_tag posts_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search" %>
@@ -35,17 +35,25 @@
           </div>
        
 
+
+
             <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
         <% if post.user_id != current_user.id%>
           <% url = "/posts/"+post.user_id.to_s%>
           <footer class="blockquote-footer">Posted by: <cite title="Source Title"><a href="<%=url%>"><%= @user.where(id: post.user_id)[0].username %></cite></footer>
+          <footer class="blockquote-footer">Posted by: 
+            
+              <%= link_to @user.where(id: post.user_id)[0].username, user_path(post.user_id) %>
+            
+          </footer>
         <% end %>
-        
+
           </div>
 
           <div class="card-body">
             <div class="btn-group" role="group" aria-label="Basic example">
               <%= link_to 'Show', post_path(post), {:class => "btn btn-sm btn-dark"} %>
+    
             </div>
           </div>
         </div>
