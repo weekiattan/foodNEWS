@@ -14,16 +14,34 @@
  *= require_self
  */
 
+.navbar{
+	background-color: #F53F85;;
+}
 
+.navbar-brand{
+	color: white;
+}
 
+.nav-link{
+	color: white;
+}
 
+.title-body{
+	padding-top: 50px;
+}
 
-.scrollbar{
-	background-color: white;
+.show-container{
+	display: flex;
+	background-color: black;
 }
 
 
-.comments{
+.show-scrollbar{
+	background-color: #F9F9F9;
+}
+
+
+.show-comments{
 	overflow: scroll;
-	height: 200px;
+	background-color: white;
 }
