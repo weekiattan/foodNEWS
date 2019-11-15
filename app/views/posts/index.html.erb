@@ -12,11 +12,10 @@
 
   <% if user_signed_in? %>
 
-  </div>
-    <%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
+ 
   <% end %>
 
-    <div class="card-deck">
+    <div class="card-columns" style="width: 80%; margin: 0 auto;">
       <% @post.each do |post| %>
         <% time = post.created_at.localtime(utc_offset = nil) %>
         <div class="card text-center ">
