@@ -6,10 +6,10 @@ class ReviewsController < ApplicationController
   # end
 
   def create
-    p '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
-    p params[:review][:post]
+    # p '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+    # p params[:review][:post]
     post_id = params[:post_id]
-    p '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+    # p '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
 
     @post = Post.find(params[:post_id])
     @review = Review.new(review_params)
@@ -19,6 +19,14 @@ class ReviewsController < ApplicationController
     redirect_to post_path(@post)
     # @reviews = Review.all.where(post_id )
 
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @review = @post.review.find(params[:id])
+    @review.destroy
+
+    redirect_to root_path
   end
 
   private

@@ -2,9 +2,9 @@
 
 <h1 class="display-4 row justify-content-center">All Posts</h1>
 
-  <div class="searchbar">
+  <div class="active-pink-3 active-pink-4 mb-4">
   <%= form_tag posts_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search],placeholder: "Search Posts" %>
     <%= submit_tag "Search" %>
     <% end %>
     </div>
@@ -12,8 +12,7 @@
 
   <% if user_signed_in? %>
 
-  </div>
-    <%= link_to 'New Post', new_post_path, {:class => "btn btn-success btn-lg btn-block"} %>
+ 
   <% end %>
 
     <div class="card-columns" style="width: 80%; margin: 0 auto;">
@@ -29,19 +28,13 @@
               <% post.rating.to_i.times do  %>
                 <span>⭐</span>
               <% end %>
-                <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
-                  <h5><%= review.comments %></h5>
-                <%end%>
           </div>
-          <% p "@@@@@@@@@@@@@@@@@@@@@@"%>
-          <% p current_user.id%>
-
-
 
             <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
         <% if post.user_id != current_user.id%>
+          <% url = "/posts/"+post.user_id.to_s%>
           <footer class="blockquote-footer">Posted by: 
-            
+           
               <%= link_to @user.where(id: post.user_id)[0].username, user_path(post.user_id) %>
             
           </footer>
@@ -57,5 +50,10 @@
           </div>
         </div>
       <% end %>
+
+
+</div>
+
   
 </div>
+
