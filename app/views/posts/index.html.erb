@@ -2,9 +2,9 @@
 
 <h1 class="display-4 row justify-content-center">All Posts</h1>
 
-  <div class="searchbar">
+  <div class="active-pink-3 active-pink-4 mb-4">
   <%= form_tag posts_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search],placeholder: "Search Posts" %>
     <%= submit_tag "Search" %>
     <% end %>
     </div>
