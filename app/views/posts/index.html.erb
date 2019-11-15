@@ -33,11 +33,7 @@
                   <h5><%= review.comments %></h5>
                 <%end%>
           </div>
-          <% p "@@@@@@@@@@@@@@@@@@@@@@"%>
-          <% p current_user.id%>
-
-
-
+    
             <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
         <% if post.user_id != current_user.id%>
           <footer class="blockquote-footer">Posted by: 
