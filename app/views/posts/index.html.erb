@@ -33,9 +33,11 @@
                   <h5><%= review.comments %></h5>
                 <%end%>
           </div>
-    
+
             <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
         <% if post.user_id != current_user.id%>
+          <% url = "/posts/"+post.user_id.to_s%>
+          <footer class="blockquote-footer">Posted by: <cite title="Source Title"><a href="<%=url%>"><%= @user.where(id: post.user_id)[0].username %></cite></footer>
           <footer class="blockquote-footer">Posted by: 
             
               <%= link_to @user.where(id: post.user_id)[0].username, user_path(post.user_id) %>
