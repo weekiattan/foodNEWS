@@ -1,4 +1,7 @@
 .card-img-top {
+  max-width: auto;
+  height: auto;
+}
     max-width: auto;
     height: auto;
 }
