@@ -28,9 +28,6 @@
               <% post.rating.to_i.times do  %>
                 <span>⭐</span>
               <% end %>
-                <% @reviews.select{|review| review.post_id == post.id}.each do |review|%>
-                  <h5><%= review.comments %></h5>
-                <%end%>
           </div>
 
             <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
@@ -53,5 +50,10 @@
           </div>
         </div>
       <% end %>
+
+
+</div>
+
   
 </div>
+

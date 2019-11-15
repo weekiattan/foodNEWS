@@ -13,10 +13,12 @@ class PostsController < ApplicationController
     def show
         @categories = Category.all
         @post= Post.find(params[:id])
+        @comment = Review.all
         @review = Review.new
         @reviews = @post.review
 
-        
+
+
     end
 
     def new
@@ -28,7 +30,7 @@ class PostsController < ApplicationController
         @categories = Category.all
         @user = User.all
 
-      
+
     end
 
     def create
@@ -51,6 +53,7 @@ class PostsController < ApplicationController
         @post.user = current_user
 
         if @post.save
+
         redirect_to @post
         else
           @posts = Post.all

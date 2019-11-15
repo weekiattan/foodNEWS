@@ -1,23 +1,46 @@
-<div class="container">
+
+<div class="card col-6" >
+	<div class="card-body title-body">
+		<h5 class=“card-title”><%= @post.title %></h5>
+	</div>
+	<div class="card-body">
+	  <img class="card-img-top" alt="image pin" src=<%= @post.img_url %> >
+	  <h6 class=“card-title”><%= @post.description %></h6>
+	  <h6 class=“card-title”><%= @post.category.cusines %></h6>
+	  <div class="star-rating">
+	  	<% @post.rating.to_i.times do  %>
+			<span>⭐</span>
+			<% end %>
+		</div>
+	  <p class="card-text"><small class="text-muted"><% time = @post.created_at.localtime(utc_offset = nil) %></small></p>
+	</div>
 
 
-
-<div class="card text-center ml-auto mr-auto mb-5" style="width: 30rem;">
-	  <img class="card-img-top" alt="image pin" src=<%= @post.cloud_url %> >
-<div class=“card-body”>
- <h4 class=“card-title”><%= @post.title %></h4>
- <h5 class=“card-title”><%= @post.description %></h5>
- <h6 class=“card-title”><%= @post.category.cusines %></h6>
+	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
+	    <% p @reviews %>
+	    <% p @post %>
+	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
+	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
+	<% p current_user.id %>
+	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
 </div>
 
-<div class="star-rating">
-	<% @post.rating.to_i.times do  %>
-		<span>⭐</span>
-	<% end %>
-</div>
+<div class="show-scrollbar">
+	<h5>Comments</h5>
+  <div class="show-comments">
+		<% @reviews.each do |review|%>
+		<% p "AAAAAAAAAAAAA" %>
+		<% p review.user_id %>
+		<% p "AAAAAAAAAAAAA" %>
+    <h6><%= review.user.username %></h6>
+    <p><%= review.comments %></p>
+    <% if current_user.id === review.user_id  %>
+    <%= link_to 'Delete', [review.post, review], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+          <% end %>
+            </div>
+           </div>
 
-<% time = @post.created_at.localtime(utc_offset = nil) %>
-</div>
 
 <%= form_with model: [@post, @review], local: true do |form| %>  <p>
     <%= form.label :comments %><br>
@@ -37,8 +60,9 @@
 		<%= link_to 'Delete Post', post_path(@post), :class => "btn btn-outline-warning",
 		method: :delete,
 		        data: { confirm: 'Are you sure?' } %>
-	<% end %>	
+	<% end %>
 </div>
 
 
 </div>
+

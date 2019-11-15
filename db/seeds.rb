@@ -11,12 +11,12 @@
 
 
 
-Category.create(cusines: "chinese")
-Category.create(cusines: "mexican")
-Category.create(cusines: "italian")
-Category.create(cusines: "japanese")
-Category.create(cusines: "indian")
-Category.create(cusines: "french")
-Category.create(cusines: "thai")
-Category.create(cusines: "korean")
-Category.create(cusines: "american")
+# Category.create(cusines: "Chinese")
+# Category.create(cusines: "Mexican")
+# Category.create(cusines: "Italian")
+# Category.create(cusines: "Japanese")
+# Category.create(cusines: "Indian")
+# Category.create(cusines: "French")
+# Category.create(cusines: "Thai")
+# Category.create(cusines: "Korean")
+# Category.create(cusines: "American")
