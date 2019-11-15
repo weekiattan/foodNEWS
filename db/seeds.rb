@@ -9,7 +9,6 @@
 
 
 
-# add = Review.create([{ comments: 'This is good', post_id: 2, user_id: 2}])
 
 
 # Category.create(cusines: "Chinese")

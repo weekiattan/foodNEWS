@@ -7,20 +7,19 @@
 
 		
 
-		  <p>
+		<p>
 		    <%= form.label :username %>
 		    <%= form.text_field :username, {:class => "form-control"} %>
           </p>
           
-          <p>
+        <p>
           <%= form.label :email %>
           <%= form.text_field :email, {:class => "form-control"} %>
         </p>
 
-		  <p>
-		    <%= form.label :profile_pic %><br>
-		    <%= form.url_field :profile_pic, {:class => "form-control"} %>
-		  </p>
+		<p>
+			<%= form.file_field :cloud %>		
+		</p>
 
 		  <%= link_to 'Back', user_path, {:class => "btn btn-outline-secondary"} %>
 		  <%= form.submit "Save", class: "btn btn-primary" %>
@@ -29,3 +28,4 @@
 	<% end %>
 
 </div>
+

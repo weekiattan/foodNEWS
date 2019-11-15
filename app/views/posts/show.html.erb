@@ -1,3 +1,4 @@
+
 <div class="card col-6" >
 	<div class="card-body title-body">
 		<h5 class=“card-title”><%= @post.title %></h5>
@@ -13,6 +14,7 @@
 		</div>
 	  <p class="card-text"><small class="text-muted"><% time = @post.created_at.localtime(utc_offset = nil) %></small></p>
 	</div>
+
 
 	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
 	    <% p @reviews %>
@@ -64,11 +66,3 @@
 
 </div>
 
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <img src="..." class="card-img-top" alt="...">
-</div>

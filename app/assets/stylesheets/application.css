@@ -14,34 +14,14 @@
  *= require_self
  */
 
-.navbar{
-	background-color: #F53F85;;
+
+.navbar {
+  background-color: #f53f85;
+}
+.navbar-brand {
+  color: white;
+}
+.nav-link {
+  color: white;
 }
 
-.navbar-brand{
-	color: white;
-}
-
-.nav-link{
-	color: white;
-}
-
-.title-body{
-	padding-top: 50px;
-}
-
-.show-container{
-	display: flex;
-	background-color: black;
-}
-
-
-.show-scrollbar{
-	background-color: #F9F9F9;
-}
-
-
-.show-comments{
-	overflow: scroll;
-	background-color: white;
-}

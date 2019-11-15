@@ -4,7 +4,7 @@
 
 <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
     <div class="card-body">
-        <img class="card-img-top" alt="image pin" src=<%= @user.profile_pic  %> >
+        <img class="card-img-top" alt="image pin" src=<%= @user.cloud_url  %> >
         <h4 class="card-title"><%= @user.username %></h4>
         <h4 class="card-title"><%= @user.email %></h4>
         
@@ -15,6 +15,9 @@
         <%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
         <% if @user.id == current_user.id %>
         <%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
+        <%= link_to 'Delete Profile', user_path(@user), :class => "btn btn-outline-warning",
+		method: :delete,
+		        data: { confirm: 'Are you sure?' } %>
         <% end %>
     </div>
 
@@ -22,3 +25,5 @@
  <% end %>
 
 </div>
+
+
