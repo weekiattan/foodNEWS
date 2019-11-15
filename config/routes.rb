@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users
   # resources :posts
 
+  resources :searches
+
   resources :posts do
     resources :reviews
   end
