@@ -9,9 +9,6 @@ class Post < ActiveRecord::Base
   end
 
 
-  def blank_stars
-    5 - rating.to_i
-   end
   
 
   belongs_to :user
