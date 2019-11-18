@@ -3,6 +3,33 @@
 	<div class="col-md-6 post-col">
 		<h5 class=“card-title” ><%= @post.title %></h5>
 	</div>
+
+
+</div>
+
+<div class="show-scrollbar">
+	<h5>Comments</h5>
+  <div class="show-comments">
+		<% @reviews.each do |review|%>
+    <h6><%= review.user.username %></h6>
+    <p><%= review.comments %></p>
+    <% if current_user.id === review.user_id  %>
+    <%= link_to 'Delete', [review.post, review], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+          <% end %>
+            </div>
+           </div>
+
+
+<%= form_with model: [@post, @review], local: true do |form| %>  <p>
+    <%= form.label :comments %><br>
+    <%= form.text_area :comments, :class => 'form-control ' %>
+  </p>
+
+  <p>
+    <%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-lg' %>
+  </p>
+<% end %>
 	<img class="card-img-top show-img" alt="image pin" src=<%= @post.cloud_url %> >
 	<div>
 		<div class="star-rating">

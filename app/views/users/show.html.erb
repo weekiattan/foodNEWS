@@ -1,29 +1,54 @@
 <div class="container">
 
- <% if user_signed_in? %>
+<% if user_signed_in? %>
 
-<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
+
+    <h3 class="card-header">Username: <%= @user.username %></h3>
     <div class="card-body">
-        <img class="card-img-top" alt="image pin" src=<%= @user.cloud_url  %> >
-        <h4 class="card-title"><%= @user.username %></h4>
-        <h4 class="card-title"><%= @user.email %></h4>
-        
-	</div>
+        <img class="card-image" alt="image pin" src=<%= @user.cloud_url  %> >
+        <h4 class="card-title">Email: <%= @user.email %></h4>
+    </div>
+    
 
-   
-    <div class="text-center mb-5">
+    
+<% p "@@@@@@@@@@@@@@@@@" %>   
+<% p @user.id %>
+ <% p current_user.id %> 
+<% p "@@@@@@@@@@@@@@@@@" %>   
+
+    <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
+        
+        <% @user.post.each do |post| %>
+            <% time = post.created_at.localtime(utc_offset = nil) %>
+            <img class="card-image post-img" alt="image pin" src=<%= post.cloud_url %> >    
+
+            <div class="card-body">         
+                <h4 class="card-title"><%= post.title %></h4>
+                <h5 class="card-title"><%= post.description %></h5>
+                <h6 class="card-title"><%= post.category.cusines %></h6>
+                <div class="star-rating">
+                <% post.rating.to_i.times do  %>
+                    <span>⭐</span>
+                <% end %>
+                </div>
+            </div>
+            <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
+
+        <% end %>
+    </div>
+</div>
+
+<div class="text-center mb-5">
         <%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
+        
         <% if @user.id == current_user.id %>
-        <%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
-        <%= link_to 'Delete Profile', user_path(@user), :class => "btn btn-outline-warning",
-		method: :delete,
-		        data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
+            <%= link_to 'Delete Profile', user_path(@user), :class => "btn btn-outline-warning",
+            method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
     </div>
 
-   
  <% end %>
 
-</div>
 
 

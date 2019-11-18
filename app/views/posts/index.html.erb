@@ -15,16 +15,16 @@
 </div> 
 
   <% if user_signed_in? %>
-
  
   <% end %>
 
-    <div class="card-columns" style="width: 80%; margin: 0 auto;">
+    <div class="card-columns" style="width: 80%; margin: 0 auto
+    ;">
       <% @post.each do |post| %>
         <% time = post.created_at.localtime(utc_offset = nil) %>
         <div class="card text-center ">
-          <img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >
-          <div class="card-body">
+          <img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >         
+          <div class="card-body">         
             <h4 class="card-title"><%= post.title %></h4>
             <h5 class="card-title"><%= post.description %></h5>
             <h6 class="card-title"><%= post.category.cusines %></h6>
@@ -53,6 +53,8 @@
             </div>
           </div>
         </div>
+        
+
       <% end %>
 
 

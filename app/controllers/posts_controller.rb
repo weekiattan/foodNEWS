@@ -16,6 +16,7 @@ class PostsController < ApplicationController
         @comment = Review.all
         @review = Review.new
         @reviews = @post.review
+        @reviews = @reviews.sort_by {|a| a.created_at}.reverse
 
 
 
