@@ -68,6 +68,15 @@ class PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
 
+        if params[:post].key?("cloud")
+          uploaded_file = params[:post][:cloud].path
+          cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+          s1 = cloudnary_file["public_id"]
+          s2 = cloudnary_file["url"]
+
+          @post.cloud_key = s1
+          @post.cloud_url = s2
+        end
         @post.update(post_params)
         redirect_to @post
     end

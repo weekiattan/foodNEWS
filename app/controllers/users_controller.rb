@@ -34,13 +34,7 @@ class UsersController < ApplicationController
           @user.cloud_url = s2
         end
 
-        
-
-      #store this public_id value to the database
-      #cloudnary_file['public_id']
-
-      # render json: cloudnary_file
-      # p cloudnary_file
+      
       
         if @user.update(user_params)
           redirect_to @user
