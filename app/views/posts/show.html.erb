@@ -16,22 +16,12 @@
 	</div>
 
 
-	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
-	    <% p @reviews %>
-	    <% p @post %>
-	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
-	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
-	<% p current_user.id %>
-	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
 </div>
 
 <div class="show-scrollbar">
 	<h5>Comments</h5>
   <div class="show-comments">
 		<% @reviews.each do |review|%>
-		<% p "AAAAAAAAAAAAA" %>
-		<% p review.user_id %>
-		<% p "AAAAAAAAAAAAA" %>
     <h6><%= review.user.username %></h6>
     <p><%= review.comments %></p>
     <% if current_user.id === review.user_id  %>
