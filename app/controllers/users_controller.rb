@@ -24,19 +24,24 @@ class UsersController < ApplicationController
     
       def update
         @user = User.find(params[:id])
-        uploaded_file = params[:user][:cloud].path
-        cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+        if params[:user].key?("cloud")
+          uploaded_file = params[:user][:cloud].path
+          cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+          s1 = cloudnary_file["public_id"]
+          s2 = cloudnary_file["url"]
+
+          @user.cloud_key = s1
+          @user.cloud_url = s2
+        end
+
+        
 
       #store this public_id value to the database
       #cloudnary_file['public_id']
 
       # render json: cloudnary_file
       # p cloudnary_file
-      s1 = cloudnary_file["public_id"]
-      s2 = cloudnary_file["url"]
-
-        @user.cloud_key = s1
-        @user.cloud_url = s2
+      
         if @user.update(user_params)
           redirect_to @user
         else

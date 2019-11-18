@@ -3,21 +3,23 @@
 <% if user_signed_in? %>
 
 
-    <h3 class="card-header">Username: <%= @user.username %></h3>
-    <div class="card-body">
-        <img class="card-image" alt="image pin" src=<%= @user.cloud_url  %> >
-        <h4 class="card-title">Email: <%= @user.email %></h4>
-    </div>
     
-
+    <div class="fb-profile">
+        <img align="left" class="fb-image-lg" src="https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-black-meat-western-food-banner-background-image_194600.jpg" alt="Profile image example"/>
+        <img align="left" class="fb-image-profile thumbnail rounded-circle" src=<%= @user.cloud_url  %> alt="Profile image example"/>
+        <div class="fb-profile-text">
+            <h1><%= @user.username %></h1>
+            <p><%= @user.email %></p>
+        </div>
+    </div>
     
 <% p "@@@@@@@@@@@@@@@@@" %>   
 <% p @user.id %>
  <% p current_user.id %> 
 <% p "@@@@@@@@@@@@@@@@@" %>   
 
-    <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
-        
+    <div class="row">
+    <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">      
         <% @user.post.each do |post| %>
             <% time = post.created_at.localtime(utc_offset = nil) %>
             <img class="card-image post-img" alt="image pin" src=<%= post.cloud_url %> >    
@@ -36,6 +38,8 @@
 
         <% end %>
     </div>
+    </div>
+
 </div>
 
 <div class="text-center mb-5">
