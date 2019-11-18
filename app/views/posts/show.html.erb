@@ -1,18 +1,7 @@
-
-<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
-    <div class="card-body">
-		<h5 class=“card-title”><%= @post.title %></h5>
-	</div>
-	<div class="card-body">
-	  <img class="card-img-top" alt="image pin" src=<%= @post.cloud_url %> >
-	  <h6 class=“card-title”><%= @post.description %></h6>
-	  <h6 class=“card-title”><%= @post.category.cusines %></h6>
-	  <div class="star-rating">
-	  	<% @post.rating.to_i.times do  %>
-			<span>⭐</span>
-			<% end %>
-		</div>
-	  <p class="card-text"><small class="text-muted"><% time = @post.created_at.localtime(utc_offset = nil) %></small></p>
+<div class="show-main">
+<div class="show-container">
+	<div class="col-md-6 post-col">
+		<h5 class=“card-title” ><%= @post.title %></h5>
 	</div>
 
 
@@ -41,6 +30,49 @@
     <%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-lg' %>
   </p>
 <% end %>
+	<img class="card-img-top show-img" alt="image pin" src=<%= @post.cloud_url %> >
+	<div>
+		<div class="star-rating">
+			<% @post.rating.to_i.times do  %>
+  	  <span>⭐</span>
+  	  <% end %>
+  	</div><br>
+		<h6 class=“card-title”>Cusine: <%= @post.category.cusines %></h6><br>
+		<h6 class=“card-title”><%= @post.description %></h6>
+		<div class="commenting">
+	<%= form_with model: [@post, @review], local: true do |form| %>  <p>
+	    <%= form.text_area :comments, :class => 'form-control ' , :placeholder => "Add a comment" %>
+	  </p>
+
+	  <p>
+	    <%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-sm' %>
+	  </p>
+	<% end %>
+</div>
+  </div>
+</div>
+  <div class="col-md-6 comment-col">
+  	<h5>Comments</h5>
+  	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
+    <% p @reviews %>
+    <% p @post %>
+    <% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
+    <% p current_user.id %>
+    <% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
+    <div class="scrollbar">
+    	<% @reviews.each do |review|%>
+    	<% p "AAAAAAAAAAAAA" %>
+    	<% p review.user_id %>
+    	<% p "AAAAAAAAAAAAA" %>
+    	<h6><%= review.user.username %></h6>
+    	<p><%= review.comments %>
+    	<% if current_user.id === review.user_id  %>
+    	<%= link_to 'X', [review.post, review], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    	<% end %>
+    	<% end %>
+    </div>
+  </div>
+ </div>
 
 
 <div class="text-center mb-5">
@@ -55,4 +87,3 @@
 
 
 </div>
-

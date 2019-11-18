@@ -1,0 +1,12 @@
+.new-post-container {
+    text-align: center;
+    margin-top: 70px;
+}
+
+#post_cloud {
+    padding-left: 130px;
+}
+
+#post_category_id {
+    margin-bottom: 10px;
+}

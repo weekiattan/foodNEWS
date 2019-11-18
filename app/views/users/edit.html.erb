@@ -1,24 +1,24 @@
-<div class="container">
+<div class="edit-user-container">
 
 	<h1 class="display-4 text-center">Edit Your Profile</h1>
 
 	<%= form_with scope: :user, model: @user, local: true do |form| %>
-		<div class="form-group mt-5" style="width: 50%; margin: 0 auto">
+		<div class="form-group mt-5" style="width: 30%; margin: 0 auto">
 
-		
+
 
 		<p>
 		    <%= form.label :username %>
 		    <%= form.text_field :username, {:class => "form-control"} %>
           </p>
-          
+
         <p>
           <%= form.label :email %>
           <%= form.text_field :email, {:class => "form-control"} %>
         </p>
 
 		<p>
-			<%= form.file_field :cloud %>		
+			<%= form.file_field :cloud %>
 		</p>
 
 		  <%= link_to 'Back', user_path, {:class => "btn btn-outline-secondary"} %>
@@ -28,4 +28,3 @@
 	<% end %>
 
 </div>
-
