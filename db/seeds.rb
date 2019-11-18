@@ -21,4 +21,3 @@ Category.create(cusines: "French")
 Category.create(cusines: "Thai")
 Category.create(cusines: "Korean")
 Category.create(cusines: "American")
-
