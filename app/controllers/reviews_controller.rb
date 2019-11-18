@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
     @review = @post.review.find(params[:id])
     @review.destroy
 
-    redirect_to root_path
+    redirect_to post_path(@post)
   end
 
   private
