@@ -1,12 +1,44 @@
-.show-scrollbar {
-    text-align: center;
-}
-
-.add-comment {
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.comment-btn {
-    text-align: center;
-}
+.navbar {
+    background-color: #f53f85;
+  }
+  .navbar-brand {
+    color: white;
+  }
+  .nav-link {
+    color: white;
+  }
+  
+  .show-main{
+      display: flex;
+      justify-content: center;
+  }
+  .show-container{
+      flex-direction: column;
+      width: 600px;
+      background-color: #d3d3d3;
+  }
+  
+  .comment-col{
+      background-color: #d3d3d3;
+      height: 447px;
+      max-width: 19%;
+      padding: 0;
+  }
+  
+  .scrollbar{
+      background-color: white;
+      overflow-y: scroll;
+      height: 415px;
+      width: 293px;
+      margin: 0;
+      padding: 0;
+  }
+  
+  
+  .commenting{
+      background-color: white;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+  
+  }
