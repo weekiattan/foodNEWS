@@ -1,0 +1,16 @@
+.log-in-container {
+  float: right;
+  margin-top: 5rem;
+  padding-right: 17rem;
+  text-align: center;
+}
+
+.log-in-text {
+  margin-left: 3rem;
+}
+
+.foodnews-image {
+    float: left;
+    width: 45rem;
+    padding-left: 4rem;
+}

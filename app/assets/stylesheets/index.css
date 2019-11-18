@@ -12,9 +12,10 @@
   }
 
   .search-form {
-    padding-left: 21rem;
+    text-align: center;
   }
 
   .advanced-search {
-    padding-left: 25rem;
+    text-align: center;
+    margin-bottom: 1rem;
   }
