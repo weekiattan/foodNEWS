@@ -1,12 +1,13 @@
 .new-post-container {
-    text-align: center;
+    text-align: left;
+    padding-left: 20rem;
     margin-top: 70px;
-}
-
-#post_cloud {
-    padding-left: 130px;
 }
 
 #post_category_id {
     margin-bottom: 10px;
+}
+
+.new-post-text {
+    padding-left: 17rem;
 }

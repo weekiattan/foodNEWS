@@ -1,0 +1,16 @@
+.log-in-container {
+  float: right;
+  margin-top: 2rem;
+  padding-right: 17rem;
+	background-color: gray;
+}
+
+.log-in-text {
+  margin-left: 3rem;
+}
+
+.foodnews-image {
+    float: left;
+    width: 45rem;
+    padding-left: 4rem;
+}

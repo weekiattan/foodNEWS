@@ -1,6 +1,12 @@
 <div class ="first-page-container">
 
-<h2 class="display-4 text-center">Log in</h2>
+<%= image_tag 'news.png', :class => 'foodnews-image' %>
+
+
+<div class="log-in-container">
+<div class="log-in-text">
+<h2 class="display-4 text-center">Login</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group mt-5" style="width :50%; margin: 0 auto">
@@ -36,4 +42,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
 </div>

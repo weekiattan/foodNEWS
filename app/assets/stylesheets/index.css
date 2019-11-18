@@ -17,7 +17,12 @@
 }
 
 .search-form {
-  padding-left: 21rem;
+  text-align: center;
+}
+
+.advanced-search {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .advanced-search {
