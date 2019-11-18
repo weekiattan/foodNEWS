@@ -1,0 +1,38 @@
+<h1> Search Result </h1>
+
+<p><%= link_to 'Back', new_search_path %></p>
+
+<% if @posts.length === 0 %>
+
+    <p>No Records Found</p>
+
+<% else %>
+
+    <% @posts.each do |post| %> 
+
+    <div class="card col-6" >
+	<div class="card-body title-body">
+		<h5 class=“card-title”><%= post.title %></h5>
+	</div>
+	<div class="card-body">
+	  <img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >
+	  <h6 class=“card-title”><%= post.description %></h6>
+	  <h6 class=“card-title”><%= post.category.cusines %></h6>
+	  <div class="star-rating">
+	  	<% post.rating.to_i.times do  %>
+			<span>⭐</span>
+			<% end %>
+
+<% end %>
+<% end %>
+		</div>
+	  <%
+=begin%>
+ <p class="card-text"><small class="text-muted"><% time = @post.created_at.localtime(utc_offset = nil) %></small></p> 
+<%
+=end%>
+	</div>
+
+
+
+

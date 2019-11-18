@@ -1,0 +1,26 @@
+<div class="container">
+
+<h1>Advanced Search</h1>
+ 
+  <%= form_with scope: :search, url: searches_path, local: true do |form| %>
+
+
+    <p>
+      <%= form.label :keywords %><br>
+      <%= form.text_field :keywords %>
+    </p>
+   
+		<div><%= form.collection_select :category, @categories, :id, :cusines %></div>
+
+
+    <p>
+      <%= form.label :rating  %><br>
+      <%= form.number_field :rating, max: 5,min: 1%>
+    </p>
+
+    <div class="actions"><%= form.submit "Search" %> </div>
+
+  <% end %>	
+
+</div>
+
