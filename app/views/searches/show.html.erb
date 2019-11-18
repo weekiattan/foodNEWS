@@ -9,11 +9,11 @@
 	<% else %>
 
     	<% @posts.each do |post| %> 
-
-			<div class="card col-6" >
-			<div class="card-body title-body">
+			
+		<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">      
+		
 				<h5 class=“card-title”><%= post.title %></h5>
-			</div>
+			
 			<div class="card-body">
 				<img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >
 				<h6 class=“card-title”><%= post.description %></h6>
@@ -22,8 +22,13 @@
 					<% post.rating.to_i.times do  %>
 						<span>⭐</span>
 					<% end %>
+				</div>
+			</div>
 
 		<% end %>
+		</div>
+		
+
 	<% end %>
 </div>
 
