@@ -57,3 +57,7 @@ body {
     width: 20%;
   }
 }
+
+.center-block {
+  float: none;
+}
