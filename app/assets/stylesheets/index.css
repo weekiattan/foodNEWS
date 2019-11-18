@@ -16,10 +16,12 @@
   box-shadow: 0 0 0 1px #f48fb1;
 }
 
-.search-form {
-  padding-left: 21rem;
-}
+  .search-form {
+    text-align: center;
+  }
 
-.advanced-search {
-  padding-left: 25rem;
-}
+  .advanced-search {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
