@@ -42,14 +42,19 @@
            </div>
 
 
-<%= form_with model: [@post, @review], local: true do |form| %>  <p>
+<%= form_with model: [@post, @review], local: true do |form| %>  
+   <p>
+   	 <div class="add-comment">
     <%= form.label :comments %><br>
-    <%= form.text_area :comments, :class => 'form-control ' %>
+	<%= form.text_area :comments, :class => 'form-control ' %>
+	 </div>
   </p>
 
+  <div class="comment-btn">
   <p>
     <%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-lg' %>
   </p>
+  </div>
 <% end %>
 
 
