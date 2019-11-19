@@ -7,7 +7,7 @@
   .nav-link {
     color: white;
   }
-  
+
   .show-main{
       display: flex;
       justify-content: center;
@@ -17,14 +17,15 @@
       width: 600px;
       background-color: #d3d3d3;
   }
-  
+
   .comment-col{
       background-color: #d3d3d3;
       height: 447px;
       max-width: 19%;
       padding: 0;
+      margin-left: 5px;
   }
-  
+
   .scrollbar{
       background-color: white;
       overflow-y: scroll;
@@ -33,12 +34,12 @@
       margin: 0;
       padding: 0;
   }
-  
-  
+
+
   .commenting{
       background-color: white;
       width: 100%;
       display: flex;
       flex-direction: column;
-  
+
   }
