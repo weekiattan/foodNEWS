@@ -1,31 +1,26 @@
 <div class="show-main">
-<div class="show-container">
-	<div class="col-md-6 post-col">
-		<h5 class=“card-title” ><%= @post.title %></h5>
+	<div class="show-container">
+		<div class="col-md-6 post-col">
+			<h5 class=“card-title” ><%= @post.title %></h5>
+		</div>
+		<img class="card-img-top show-img" alt="image pin" src=<%= @post.cloud_url %> >
+		<div>
+			<div class="star-rating">
+				<% @post.rating.to_i.times do  %>
+				<span>⭐</span>
+				<% end %>
+			</div><br>
+			<h6 class=“card-title”>Cusine: <%= @post.category.cusines %></h6><br>
+			<h6 class=“card-title”><%= @post.description %></h6>
+			<div class="commenting">
+				<%= form_with model: [@post, @review], local: true do |form| %>  <p>
+	  		<%= form.text_area :comments, :class => 'form-control ' , :placeholder => "Add a comment" %></p>
+	  		<p><%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-sm' %></p><% end %>
+			</div>
+		</div>
 	</div>
-	<img class="card-img-top show-img" alt="image pin" src=<%= @post.cloud_url %> >
-	<div>
-		<div class="star-rating">
-			<% @post.rating.to_i.times do  %>
-  	  <span>⭐</span>
-  	  <% end %>
-  	</div><br>
-		<h6 class=“card-title”>Cusine: <%= @post.category.cusines %></h6><br>
-		<h6 class=“card-title”><%= @post.description %></h6>
-		<div class="commenting">
-	<%= form_with model: [@post, @review], local: true do |form| %>  <p>
-	    <%= form.text_area :comments, :class => 'form-control ' , :placeholder => "Add a comment" %>
-	  </p>
-
-	  <p>
-	    <%= form.submit 'Add a Comment', :class => 'btn btn-outline-success btn-sm' %>
-	  </p>
-	<% end %>
-</div>
-  </div>
-</div>
-  <div class="col-md-6 comment-col">
-  	<h5>Comments</h5>
+	<div class="col-md-6 comment-col">
+		<h5>Comments</h5>
   	<% p "QQQQQQQQQQQQQQQQQQQQQQQQQQ" %>
     <% p @reviews %>
     <% p @post %>
@@ -39,32 +34,25 @@
     	<% p "AAAAAAAAAAAAA" %>
     	<h6><%= review.user.username %></h6>
     	<p><%= review.comments %>
-		<% if current_user.id === review.user_id  %>
-
-	<%= link_to [review.post, review], method: :delete, data: { confirm: 'Are you sure?' } do %>
-		<button type="button" class="close" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	<%end%>
-	
-    	</p>
-    	<% end %>
-    	<% end %>
-    </div>
-  </div>
- </div>
-
-
-
-<div class="text-center mb-5">
-<%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
-	<% if @post.user_id == current_user.id%>
-		<%= link_to 'Edit Post', edit_post_path(@post), {:class => "btn btn-outline-primary"} %>
-		<%= link_to 'Delete Post', post_path(@post), :class => "btn btn-outline-warning",
-		method: :delete,
-		        data: { confirm: 'Are you sure?' } %>
-	<% end %>
+    		<% if current_user.id === review.user_id  %>
+    		<%= link_to [review.post, review], method: :delete, data: { confirm: 'Are you sure?' } do %>
+    		<button type="button" class="close" aria-label="Close">
+    			<span aria-hidden="true">&times;</span>
+				</button>
+				<%end%>
+			</p>
+			<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>
 
-
+<div class="text-center mb-5">
+	<%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
+	<% if @post.user_id == current_user.id%>
+	<%= link_to 'Edit Post', edit_post_path(@post), {:class => "btn btn-outline-primary"} %>
+	<%= link_to 'Delete Post', post_path(@post), :class => "btn btn-outline-warning",
+		method: :delete,
+		data: { confirm: 'Are you sure?' } %>
+		<% end %>
 </div>

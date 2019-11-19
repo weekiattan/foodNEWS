@@ -1,58 +1,48 @@
 <div class="container">
-
-<% if user_signed_in? %>
-
-
-    
-    <div class="fb-profile">
-        <img align="left" class="fb-image-lg" src="https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-black-meat-western-food-banner-background-image_194600.jpg" alt="Profile image example"/>
-        <img align="left" class="fb-image-profile thumbnail rounded-circle" src=<%= @user.cloud_url  %> alt="Profile image example"/>
-        <div class="fb-profile-text">
-            <h1><%= @user.username %></h1>
-            <p><%= @user.email %></p>
-        </div>
+	<% if user_signed_in? %>
+	<div class="fb-profile">
+		<img align="left" class="fb-image-lg" src="https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-black-meat-western-food-banner-background-image_194600.jpg" alt="Profile image example"/>
+		<img align="left" class="fb-image-profile thumbnail rounded-circle" src=<%= @user.cloud_url  %> alt="Profile image example"/>
+		<div class="fb-profile-text">
+			<h1><%= @user.username %></h1>
+      <p><%= @user.email %></p>
     </div>
-    
-<% p "@@@@@@@@@@@@@@@@@" %>   
-<% p @user.id %>
- <% p current_user.id %> 
-<% p "@@@@@@@@@@@@@@@@@" %>   
+  </div>
+  <% p "@@@@@@@@@@@@@@@@@" %>
+	<% p @user.id %>
+	<% p current_user.id %>
+	<% p "@@@@@@@@@@@@@@@@@" %>
 
-    <div class="row">
-    <div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">      
-        <% @user.post.each do |post| %>
-            <% time = post.created_at.localtime(utc_offset = nil) %>
-            <img class="card-image post-img" alt="image pin" src=<%= post.cloud_url %> >    
+	<div class="row">
+		<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
+			<% @user.post.each do |post| %>
+			<% time = post.created_at.localtime(utc_offset = nil) %>
+			<img class="card-image post-img" alt="image pin" src=<%= post.cloud_url %> >
 
-            <div class="card-body">         
-                <h4 class="card-title"><%= post.title %></h4>
-                <h5 class="card-title"><%= post.description %></h5>
-                <h6 class="card-title"><%= post.category.cusines %></h6>
-                <div class="star-rating">
-                <% post.rating.to_i.times do  %>
-                    <span>⭐</span>
-                <% end %>
-                </div>
-            </div>
-            <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
+			<div class="card-body">
+				<h4 class="card-title"><%= post.title %></h4>
+				<h5 class="card-title"><%= post.description %></h5>
+				<h6 class="card-title"><%= post.category.cusines %></h6>
+				<div class="star-rating">
+					<% post.rating.to_i.times do  %>
+					<span>⭐</span>
+					<% end %>
+				</div>
+      </div>
 
-        <% end %>
+      <footer class="blockquote-footer">Created at: <cite title="Source Title"><%= time.strftime("%B:%e %Y") %></cite></footer>
+      <% end %>
     </div>
-    </div>
-
+  </div>
 </div>
 
 <div class="text-center mb-5">
-        <%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
-        
-        <% if @user.id == current_user.id %>
-            <%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
-            <%= link_to 'Delete Profile', user_path(@user), :class => "btn btn-outline-warning",
-            method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-    </div>
+	<%= link_to 'Back', root_path, {:class => "btn btn-outline-secondary"} %>
+	<% if @user.id == current_user.id %>
+	<%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
+	<%= link_to 'Delete Profile', user_path(@user), :class => "btn btn-outline-warning",
+	method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+</div>
 
- <% end %>
-
-
-
+<% end %>

@@ -1,38 +1,26 @@
 <div class="record-text">
-		<h1> Search Result </h1>
 
-		<p><%= link_to 'Back', new_search_path, :class => "btn btn-outline-secondary" %></p>
+	<h1> Search Result </h1>
+	<p><%= link_to 'Back', new_search_path, :class => "btn btn-outline-secondary" %></p>
 
 	<% if @posts.length === 0 %>
-    	<p>No Records Found</p>
-   
+	<p>No Records Found</p>
 	<% else %>
+	<% @posts.each do |post| %>
 
-    	<% @posts.each do |post| %> 
-			
-		<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">      
-		
-				<h5 class=“card-title”><%= post.title %></h5>
-			
-			<div class="card-body">
-				<img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >
-				<h6 class=“card-title”><%= post.description %></h6>
-				<h6 class=“card-title”><%= post.category.cusines %></h6>
-				<div class="star-rating">
-					<% post.rating.to_i.times do  %>
-						<span>⭐</span>
-					<% end %>
-				</div>
+	<div class="card text-center ml-auto mr-auto mb-5" style="width: 20rem;">
+		<h5 class=“card-title”><%= post.title %></h5>
+		<div class="card-body">
+			<img class="card-img-top" alt="image pin" src=<%= post.cloud_url %> >
+			<h6 class=“card-title”><%= post.description %></h6>
+			<h6 class=“card-title”><%= post.category.cusines %></h6>
+			<div class="star-rating">
+				<% post.rating.to_i.times do  %>
+				<span>⭐</span>
+				<% end %>
 			</div>
-
-		<% end %>
 		</div>
-		
-
+		<% end %>
+	</div>
 	<% end %>
 </div>
-
-
-
-
-
